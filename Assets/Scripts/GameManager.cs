@@ -15,12 +15,14 @@ public class GameManager : MonoBehaviour
     {
         completeLevelUI.SetActive(true);
     }
+    public AudioSource dieSound;
 
     public void EndGame()
     {
         if (gameHasEnded == false)
         {
             gameHasEnded = true;
+            dieSound.Play();
             Debug.Log("Game Over!");
             Invoke("Restart", restartDelay);
         }
